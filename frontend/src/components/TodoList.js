@@ -9,7 +9,7 @@ function TodoList({ token }) {
   // Define fetchTodos outside of useEffect so it can be reused
 const fetchTodos = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:5000/todos', {
+    const response = await axios.get('https://todo-python-5hbl.onrender.com/todos', {
       headers: { Authorization: `Bearer ${token}` },
     });
     setTodos(response.data);
@@ -29,7 +29,7 @@ const handleAddTodo = async (e) => {
   try {
     // Make the POST request to add the new todo
     const response = await axios.post(
-      'http://127.0.0.1:5000/todos',
+      'https://todo-python-5hbl.onrender.com/todos',
       { text: newTodo },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -61,7 +61,7 @@ const handleAddTodo = async (e) => {
 
     // Call the API to update the todo completion status
     try {
-      await axios.patch(`http://127.0.0.1:5000/todos/${id}`, 
+      await axios.patch(`https://todo-python-5hbl.onrender.com/${id}`, 
         { completed: !todoToToggle.completed }, // Send updated completed status
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -78,7 +78,7 @@ const handleAddTodo = async (e) => {
         console.error("No valid token, please log in again.");
         return;
       }
-      await axios.delete(`http://127.0.0.1:5000/todos/${id}`, {
+      await axios.delete(`https://todo-python-5hbl.onrender.com/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
