@@ -8,7 +8,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:5000/register', { username, password });
+      await axios.post('https://todo-python-5hbl.onrender.com/register', { username, password });
       alert('User registered successfully!');
     } catch (error) {
       console.error('Error:', error);
